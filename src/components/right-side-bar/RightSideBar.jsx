@@ -1,9 +1,9 @@
+import { Switch } from "@mui/material";
 import Image from "next/image";
-import img1 from "../../assets/language.svg";
-import img2 from "../../assets/general.svg";
-import img3 from "../../assets/Group 266.jpg";
-import img4 from "../../assets/alldua.svg";
 import img5 from "../../assets/alldua-Copy.svg";
+import img4 from "../../assets/alldua.svg";
+import img2 from "../../assets/general.svg";
+import img1 from "../../assets/language.svg";
 
 const RightSideBar = () => {
   return (
@@ -74,7 +74,7 @@ const RightSideBar = () => {
             </p>
           </div>
         </div>
-        <div className="flex justify-between w-full gap-1 mt-4 p-2">
+        <div className="flex justify-between items-center w-full gap-1 mt-4 p-2">
           <div>
             <p
               className="text-[#868686] font-normal text-xs
@@ -84,11 +84,7 @@ const RightSideBar = () => {
             </p>
           </div>
           <div>
-            <Image
-              src={img3}
-              className="bg-[#e8f0f5] rounded-full p-1"
-              alt="image"
-            />
+          <Switch color="success" defaultChecked />
           </div>
         </div>
       </div>

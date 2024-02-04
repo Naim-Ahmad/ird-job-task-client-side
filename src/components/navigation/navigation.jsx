@@ -1,7 +1,8 @@
 import Image from "next/image";
-import img1 from "../../assets/profile.svg";
-import img2 from "../../assets/Polygon 2.jpg";
+import { FaGear } from "react-icons/fa6";
 import { IoSearchOutline } from "react-icons/io5";
+import img2 from "../../assets/Polygon 2.jpg";
+import profile from "../../assets/profile.svg";
 
 const Navigation = () => {
   return (
@@ -9,8 +10,8 @@ const Navigation = () => {
       <div className="col-span-1">
         <p className="text-[#393939] text-xl font-semibold">Dua Page</p>
       </div>
-      <div className="md:grid grid-cols-5 items-center">
-        <div className="col-span-3 hidden md:block">
+      <div className="lg:grid grid-cols-5 items-center">
+        <div className="col-span-3 hidden lg:block">
           <div className="flex items-center bg-white border rounded-lg">
             <input
               type="search"
@@ -25,8 +26,11 @@ const Navigation = () => {
           </div>
         </div>
         <div className="flex items-center gap-1 justify-end col-span-2">
-          <Image src={img1} alt="image" />
+          <Image src={profile} alt="image" />
           <Image src={img2} alt="image" />
+          <div className="flex items-center gap-1 justify-end col-span-2 ml-2">
+            <FaGear color="#1fa45b" size={25}/>
+          </div>
         </div>
       </div>
     </div>

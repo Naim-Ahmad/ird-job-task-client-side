@@ -1,13 +1,16 @@
+"use client"
+import { Tooltip } from "@mui/material";
 import localFont from "next/font/local";
 import Image from "next/image";
+import { useRef } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import audioBtn from "../../assets/audiobtn.svg";
 import bookmarkBtn from "../../assets/bookmark.svg";
 import copyBtn from "../../assets/copy.svg";
 import duaCard from "../../assets/duacard.svg";
 import memorizeBtn from "../../assets/plan.svg";
 import reportBtn from "../../assets/report.svg";
 import shareBtn from "../../assets/share.svg";
+import Audio from "./Audio";
 
 const meQuran = localFont({
   src: [
@@ -21,6 +24,7 @@ export default function DuaCard({ doa, ind }) {
 
   const { id, cat_id, subcat_id, dua_id, dua_name_bn, dua_name_en, top_bn, top_en, dua_arabic, dua_indopak, clean_arabic, transliteration_bn, transliteration_en, translation_bn, translation_en, bottom_bn, bottom_en, refference_bn, refference_en, audio } = doa || {};
 
+  const audioRef = useRef()
 
   const handleCopy = () => {
     const duwaName = dua_name_en ? dua_name_en : ""
@@ -45,7 +49,7 @@ export default function DuaCard({ doa, ind }) {
   return (
     <div className="rounded-md">
       <Toaster />
-      <div id={ind} className="bg-white mb-6  rounded-md p-3 md:px-5">
+      <div id={ind} className="bg-white mb-6  rounded-md p-3 lg:px-5">
         <div id={dua_name_en} className="flex items-center gap-2 pb-6">
           <Image src={duaCard} alt="" />
           <p className="text-[#1FA45B] font-semibold">
@@ -85,15 +89,13 @@ export default function DuaCard({ doa, ind }) {
           </p>
         </div>
         <div className="flex justify-between items-center gap-3 mb-2 mt-5">
-          <button>
-            <Image src={audioBtn} alt="image" />
-            <audio src=""></audio>
-          </button>
-          <div className="flex justify-center gap-3 md:gap-8">
+          {audio ? <Audio audio={audio}/> : <div></div>}
+          
+          <div className="flex justify-center gap-3 lg:gap-8">
 
-            <div className="tooltip" data-tip="Copy">
+            <Tooltip title="Copy" placement="top" arrow>
               <button onClick={handleCopy} className="cursor-pointer"><Image src={copyBtn} alt="image" /></button>
-            </div>
+            </Tooltip>
 
             <button tooltip="something" className="cursor-pointer"><Image src={bookmarkBtn} alt="image" /></button>
             <button className="cursor-pointer"><Image src={memorizeBtn} alt="image" /></button>

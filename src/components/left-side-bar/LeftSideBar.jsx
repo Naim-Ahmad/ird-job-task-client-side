@@ -14,18 +14,18 @@ const LeftSideBar = () => {
   const images = [img1, img2, img3, img4, img5, img6, img7];
 
   return (
-    <div className="flex md:flex-col md:justify-between rounded-xl h-full py-3">
-      <div className="hidden md:block">
+    <div className="flex lg:flex-col lg:justify-between rounded-xl h-full py-3">
+      <div className="hidden lg:block">
         <Image alt="image" className="" src={img9} />
       </div>
-      <div className="flex md:flex-col gap-3 w-[100vw] md:w-auto justify-evenly md:gap-4 mx-auto rounded-t-2xl md:rounded-none px-3 md:px-0">
+      <div className="flex lg:flex-col gap-3 w-[100vw] lg:w-auto justify-evenly lg:gap-4 mx-auto rounded-t-2xl lg:rounded-none px-3 lg:px-0">
         {images.map((img) => (
-          <p className="bg-[#e8f0f5] py-2 rounded-full w-8 md:mx-auto" key={uuidv4()}>
+          <p className="bg-[#e8f0f5] py-2 rounded-full w-8 lg:mx-auto" key={uuidv4()}>
             <Image className="mx-auto  h-4 w-4" alt="image" src={img} />
           </p>
         ))}
       </div>
-      <div className="hidden md:block">
+      <div className="hidden lg:block">
         <Image
           alt="image"
           className="bg-[#1ea65a] mx-auto p-3 h-16 w-16 rounded-lg"

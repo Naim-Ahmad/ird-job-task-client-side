@@ -10,11 +10,14 @@ export default function StateProvider({ children }) {
   const [categories, setCategories] = useState([])
   const [subcategories, setSubcategories] = useState({})
   const [isShow, setIsShow] = useState(false)
+  const [isLoading, setIsloading] = useState(false)
 
   const getCategories = async () => {
+    setIsloading(true)
     const res = await fetch("http://localhost:5000/categories");
     const data = await res.json();
     setCategories(data)
+    setIsloading(false)
   }
 
   const getSubCategories = async () => {
@@ -34,6 +37,7 @@ export default function StateProvider({ children }) {
     setSelectedSubCategory,
     isShow,
     setIsShow,
+    isLoading
   }
 
   return (

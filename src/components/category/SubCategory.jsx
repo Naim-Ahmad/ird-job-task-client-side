@@ -21,7 +21,7 @@ export default function SubCategory({ catId }) {
       subcategories?.subcategories?.map((subcategory, ind) => (
         <>
           <Link
-            href={`#${ind + 1}`}
+            href={`#duaSec${ind + 1}`}
             onClick={() => setSelectedSubCategory(subcategory.subcat_id)}
             key={uuidv4()}
             className="py-3 flex hover:text-[#1fa45b] cursor-pointer font-semibold text-md items-center gap-2 -ml-[5px]"

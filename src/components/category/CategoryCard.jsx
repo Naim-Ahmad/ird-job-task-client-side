@@ -42,7 +42,7 @@ export default function CategoryCard({ category, ind }) {
     <div className={`transition-height group ease-in-out bg-white duration-1000 ${selectedCategory === ind ? "h-[auto]" : "h-20"} my-2 `}>
 
       {/* category clickable card */}
-      <Link href={`#${cat_id}`} onClick={handleToggle} className={`grid grid-cols-6 ${selectedCategory === ind && 'bg-[#e8f0f5]'} p-2 cursor-pointer rounded-md mx-2 hover:bg-[#e8f0f5]`}>
+      <Link href={`#duaSec1`} onClick={handleToggle} className={`grid grid-cols-6 ${selectedCategory === ind && 'bg-[#e8f0f5]'} p-2 cursor-pointer rounded-md mx-2 hover:bg-[#e8f0f5]`}>
         <div className="col-span-5 flex items-center gap-2">
           <div className="p-3 rounded-md bg-[#f7f8fa]">
             <Image src={images[cat_icon]} alt="image" />
