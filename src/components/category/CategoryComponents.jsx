@@ -1,7 +1,7 @@
 "use client";
 /* eslint-disable react/no-unescaped-entities */
 import { StateContext } from "@/context/StateProvider";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdClose } from "react-icons/md";
 import CategoryCard from "./CategoryCard";
@@ -12,6 +12,8 @@ const CategoryComponents = () => {
   const { getCategories, isLoading, categories, selectedCategory, getSubCategories, isShow, subcategories, setIsShow } =
     useContext(StateContext);
   // console.log(categories)
+  const [search, setSearch] = useState('')
+
   useEffect(() => {
     getCategories();
   }, []);
@@ -19,6 +21,18 @@ const CategoryComponents = () => {
   useEffect(() => {
     getSubCategories(selectedCategory);
   }, [selectedCategory]);
+
+  const handleSearch = (e)=> {
+    setSearch(e.target.value)
+  }
+
+  const filterBySearch = (category) => {
+    if (search === '') {
+        return true;
+    } else {
+        return category.cat_name_en.search(new RegExp(search, 'gi')) !== -1;
+    }
+};
 
 
   return (
@@ -43,7 +57,12 @@ const CategoryComponents = () => {
         <input
           type="search"
           name="search"
+          onClick={(e) => {
+            e.target.value = ''
+            setSearch('')
+          }}
           placeholder="Search by category"
+          onKeyUp={handleSearch}
           className="w-full pl-4 focus:border-none focus:outline-none text-sm"
         />
       </div>
@@ -55,7 +74,7 @@ const CategoryComponents = () => {
       style={{ scrollbarWidth: "thin", scrollbarColor: "#a8a8a8 #f1f1f1" }}
     >
       {
-       isLoading ? <div className="flex flex-col"><CategoryCardSkeleton/> <CategoryCardSkeleton/> <CategoryCardSkeleton/><CategoryCardSkeleton/></div> : categories.map((category, ind) => (
+       isLoading ? <div className="flex flex-col"><CategoryCardSkeleton/> <CategoryCardSkeleton/> <CategoryCardSkeleton/></div> : categories.filter(filterBySearch).map((category, ind) => (
           <CategoryCard key={ind} ind={ind + 1} category={category} subcategories={subcategories.subcategories} />
         ))
       }
