@@ -50,7 +50,7 @@ const CategoryComponents = () => {
 
       {/* category list */}
      {
-      isLoading ? <div><CategoryCardSkeleton/></div> :  <div
+      isLoading ? <div className="overflow-y-auto h-full lg:h-[67vh] overflow-hidden mb-12 lg:mb-0"><CategoryCardSkeleton/></div> :  <div
       className="overflow-y-auto h-full lg:h-[67vh] overflow-hidden mb-12 lg:mb-0"
       style={{ scrollbarWidth: "thin", scrollbarColor: "#a8a8a8 #f1f1f1" }}
     >

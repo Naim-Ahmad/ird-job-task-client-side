@@ -14,14 +14,14 @@ export default function StateProvider({ children }) {
 
   const getCategories = async () => {
     setIsloading(true)
-    const res = await fetch("http://localhost:5000/categories");
+    const res = await fetch("https://ird-foundation-server.onrender.com/categories");
     const data = await res.json();
     setCategories(data)
     setIsloading(false)
   }
 
   const getSubCategories = async () => {
-    const res = await fetch(`http://localhost:5000/subcategories?cat=${selectedCategory}`);
+    const res = await fetch(`https://ird-foundation-server.onrender.com/subcategories?cat=${selectedCategory}`);
     const data = await res.json();
     setSubcategories(data)
   }
